@@ -8,13 +8,16 @@ fetch("data/videos.json")
     videoElement.src = `assets/videos/${video.file}`;
   });
 
-// Controles por teclado
+// Atalhos de teclado
 document.addEventListener("keydown", (e) => {
-  if (e.key === " ") {
+  if (e.code === "Space") {
     e.preventDefault();
     videoElement.paused ? videoElement.play() : videoElement.pause();
   }
   if (e.key.toLowerCase() === "m") {
     videoElement.muted = !videoElement.muted;
+  }
+  if (e.altKey && e.code === "ArrowLeft") {
+    videoElement.currentTime -= 10;
   }
 });
