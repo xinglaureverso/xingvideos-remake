@@ -1,0 +1,69 @@
+body {
+  margin: 0;
+  background-color: #000;
+  color: #fff;
+  font-family: sans-serif;
+  overflow: hidden;
+}
+
+#shortContainer {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+}
+
+.video-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+video {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  max-width: 320px;
+}
+
+.overlay .title {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.overlay .profile {
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.overlay .profile img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.actions {
+  position: absolute;
+  right: 20px;
+  bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.actions button {
+  background: none;
+  color: white;
+  font-size: 22px;
+  border: none;
+  cursor: pointer;
+}
