@@ -1,13 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-  <title>Shorts - XingVideos</title>
-  <link rel="stylesheet" href="css/shorts.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Xing Shorts</title>
+  <link rel="stylesheet" href="css/shorts.css" />
 </head>
 <body>
-  <div id="shortContainer">
-    <!-- Short será inserido dinamicamente via JS -->
-  </div>
+
+  <header>
+    <h1>📱 Xing Shorts</h1>
+    <p>Vídeos curtos e criativos em modo turbo 🔥</p>
+  </header>
+
+  <section class="shortsGrid">
+    <!-- Card de exemplo -->
+    <div class="shortCard">
+      <video src="assets/shorts/exemplo1.mp4" controls muted loop></video>
+      <p>“Transformei isso em arte 🤯”</p>
+    </div>
+  </section>
+
   <script src="js/shorts.js"></script>
+  <script type="module" src="js/shorts.ts"></script>
 </body>
 </html>
