@@ -1,39 +1,32 @@
-const slug = new URLSearchParams(window.location.search).get("=");
-fetch("data/shorts.json")
-  .then(res => res.json())
-  .then(data => {
-    const short = data.find(v => v.slug === slug);
-    if (!short) return;
+let shortsData = [];
+let currentIndex = 0;
 
-    const container = document.getElementById("shortContainer");
-    container.innerHTML = `
-      <div class="video-wrapper">
-        <video src="assets/shorts/${short.file}" autoplay muted loop></video>
-        <div class="overlay">
-          <div class="title">${short.title}</div>
-          <div class="profile">
-            <img src="assets/profiles/${short.music}" alt="Foto de perfil musical">
-            <span>${short.username}</span>
-          </div>
-        </div>
-        <div class="actions">
-          <button onclick="likeShort()">👍</button>
-          <button onclick="dislikeShort()">👎</button>
-          <button onclick="shareShort()">🔗</button>
-        </div>
-      </div>
-    `;
-  });
-
-function likeShort() {
-  alert("Você deu LIKE na marmita 💥");
+async function carregarShorts() {
+  const res = await fetch('data/shorts.json');
+  shortsData = await res.json();
+  mostrarShort(currentIndex);
 }
 
-function dislikeShort() {
-  alert("Você deu DISLIKE... marmita fria 😬");
+function mostrarShort(index) {
+  const container = document.querySelector('.shortsGrid');
+  container.innerHTML = '';
+
+  const short = shortsData[index];
+  const card = document.createElement('div');
+  card.className = 'shortCard';
+
+  card.innerHTML = `
+    <video src="assets/shorts/${short.video}" controls muted loop></video>
+    <p>“${short.title}”</p>
+  `;
+  container.appendChild(card);
 }
 
-function shareShort() {
-  navigator.clipboard.writeText(window.location.href);
-  alert("Link copiado! Compartilha no zap da firma 🤝");
-}
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowDown') {
+    currentIndex = (currentIndex + 1) % shortsData.length;
+    mostrarShort(currentIndex);
+  }
+});
+
+carregarShorts();
