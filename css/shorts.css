@@ -1,69 +1,44 @@
 body {
   margin: 0;
-  background-color: #000;
-  color: #fff;
   font-family: sans-serif;
+  background-color: #0f0f0f;
+  color: #fff;
+}
+
+header {
+  padding: 1rem;
+  background-color: #202020;
+  text-align: center;
+  border-bottom: 1px solid #333;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.shortsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.shortCard {
+  background-color: #1a1a1a;
+  border-radius: 6px;
   overflow: hidden;
+  text-align: center;
+  box-shadow: 0 0 4px rgba(0,0,0,0.6);
 }
 
-#shortContainer {
-  position: relative;
-  height: 100vh;
-  width: 100vw;
-}
-
-.video-wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
+.shortCard video {
   width: 100%;
+  height: auto;
 }
 
-video {
-  object-fit: cover;
-  height: 100%;
-  width: 100%;
-}
-
-.overlay {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  max-width: 320px;
-}
-
-.overlay .title {
-  font-size: 22px;
-  font-weight: bold;
-}
-
-.overlay .profile {
-  display: flex;
-  align-items: center;
-  margin-top: 12px;
-}
-
-.overlay .profile img {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  margin-right: 10px;
-}
-
-.actions {
-  position: absolute;
-  right: 20px;
-  bottom: 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.actions button {
-  background: none;
-  color: white;
-  font-size: 22px;
-  border: none;
-  cursor: pointer;
+.shortCard p {
+  margin: 0.5rem;
+  font-size: 0.9rem;
+  color: #ccc;
 }
