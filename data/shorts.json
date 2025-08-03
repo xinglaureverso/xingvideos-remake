@@ -1,9 +1,20 @@
 [
   {
-    "slug": "caguei_tanta_bosta_no_bk",
-    "title": "Caguei tanta bosta no BK",
-    "file": "caguei_tanta_bosta_no_bk.mp4",
-    "username": "Xinglau",
-    "music": "bk_marmita.jpg"
+    "id": "short1",
+    "video": "short1.mp4",
+    "title": "bk ou mc?",
+    "descricao": "Comparação visual explosiva entre os dois gigantes."
+  },
+  {
+    "id": "short2",
+    "video": "short2.mp4",
+    "title": "Qual é mais crocante?",
+    "descricao": "Testamos as batatas com tecnologia acústica 🔊"
+  },
+  {
+    "id": "short3",
+    "video": "short3.mp4",
+    "title": "O que tem no molho secreto?",
+    "descricao": "Uma análise visual sem censura 👀"
   }
 ]
