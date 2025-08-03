@@ -1,23 +1,105 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Xing Studio</title>
-  <link rel="stylesheet" href="css/studio.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #121212;
+      color: #fff;
+    }
+    header {
+      background: linear-gradient(90deg, #ff0000, #9900ff);
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header img.avatar {
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      border: 2px solid #fff;
+    }
+    header .info {
+      margin-left: 1rem;
+    }
+    nav {
+      display: flex;
+      gap: 10px;
+      padding: 1rem;
+      background-color: #1f1f1f;
+    }
+    nav button {
+      padding: 0.5rem 1rem;
+      background-color: #282828;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    nav button:hover {
+      background-color: #ff0044;
+    }
+    #gradeVideos {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1rem;
+      padding: 2rem;
+    }
+    .videoCard {
+      background-color: #1a1a1a;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 0 5px #000;
+    }
+    .videoCard img {
+      width: 100%;
+      height: auto;
+    }
+    .videoCard .meta {
+      padding: 0.5rem;
+    }
+    .videoCard .meta h3 {
+      margin: 0;
+      font-size: 1rem;
+    }
+  </style>
 </head>
 <body>
-  <div id="offline-warning" style="display:none;">ops... parece que você está sem conexão com a internet. Volte mais tarde.</div>
 
   <header>
-    <img src="assets/profile.jpg" id="profile-img" alt="Perfil">
-    <h1>Xing Studio</h1>
+    <img src="uploads/avatars/@xinglau.jpg" class="avatar" />
+    <div class="info">
+      <h1>@xinglau</h1>
+      <p>🎨 Criatividade em estado bruto</p>
+      <p>👥 Inscritos: 1.392</p>
+    </div>
+    <button onclick="window.location='profile.html?usuario=xinglau'">🌐 Ver canal público</button>
   </header>
 
-  <main>
-    <section id="channel-info"></section>
-    <section id="video-manager"></section>
-  </main>
+  <nav>
+    <button onclick="window.location='novo_video.html'">🎬 Novo Vídeo</button>
+    <button onclick="alert('Função em breve 🤖')">📊 Estatísticas</button>
+    <button onclick="alert('Editor de perfil em fase alfa ⚙️')">⚙️ Personalizar Canal</button>
+  </nav>
 
-  <script src="js/studio.js"></script>
+  <section id="gradeVideos">
+    <!-- Exemplo de vídeo -->
+    <div class="videoCard">
+      <img src="uploads/thumbs/sample1.jpg" alt="Thumb do vídeo" />
+      <div class="meta">
+        <h3>Título do vídeo 🔥</h3>
+        <p>1.2K visualizações · há 2 dias</p>
+      </div>
+    </div>
+    <!-- Add mais cards aqui dinamicamente -->
+  </section>
+
 </body>
 </html>
