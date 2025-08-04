@@ -92,3 +92,50 @@ video#player {
   background-color: #e6006c;
   transform: scale(1.05);
 }
+.favoritos-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding: 20px;
+}
+
+.video-card {
+  background-color: #1c1c1c;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 250px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+}
+
+.video-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.video-info {
+  padding: 12px;
+  color: #fff;
+}
+
+.video-info h3 {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.btn-assistir,
+.btn-remover {
+  padding: 6px 10px;
+  margin-right: 6px;
+  background-color: #ff0077;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-assistir:hover,
+.btn-remover:hover {
+  background-color: #e6006c;
+  transform: scale(1.05);
+}
