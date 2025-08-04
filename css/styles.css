@@ -62,3 +62,33 @@ video#player {
   margin-right: 8px;
   vertical-align: middle;
 }
+.perfil-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 20px;
+}
+
+.perfil-foto {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ff0077;
+}
+
+.perfil-acoes button {
+  background-color: #ff0077;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  margin-right: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.perfil-acoes button:hover {
+  background-color: #e6006c;
+  transform: scale(1.05);
+}
