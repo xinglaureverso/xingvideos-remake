@@ -4,7 +4,7 @@ const player = document.getElementById("shortPlayer");
 
 function loadVideo(index) {
   current = index;
-  player.src = `assets/shorts/${videos[current]}`;
+  player.src = `../assets/shorts/${videoFile}`;
   player.play();
 }
 
