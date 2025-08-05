@@ -1,35 +1,20 @@
+<!-- player.html -->
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-  <title>Assistindo - XingVideos</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <title>XingPlayer</title>
+  <style>
+    body { background: #111; color: #fff; text-align: center; }
+    video { width: 80%; max-width: 800px; margin-top: 50px; }
+  </style>
 </head>
 <body>
-  <div class="header"><a href="index.html">← Voltar</a> | Assistindo agora</div>
-  <!-- Barra lateral com imagens .jpg -->
-<div class="sidebar">
-  <a href="index.html">
-    <img src="assets/icons/home.jpg" alt="Início" class="icon-img"> Início
-  </a>
-  <a href="shorts.html">
-    <img src="assets/icons/shorts.jpg" alt="Shorts" class="icon-img"> Shorts
-  </a>
-  <a href="favoritos.html">
-    <img src="assets/icons/favoritos.jpg" alt="Favoritos" class="icon-img"> Favoritos
-  </a>
-  <a href="login.html">
-    <img src="assets/icons/login.jpg" alt="Login" class="icon-img"> Login
-  </a>
-</div>
-  <video id="player" controls autoplay playsinline></video>
+  <video id="player" controls>
+    <source src="" type="video/mp4">
+    Seu navegador não suporta vídeo.
+  </video>
+
   <script src="js/player.js"></script>
 </body>
 </html>
-<div class="perfil-container">
-  <img src="assets/icons/login.jpg" alt="Foto de perfil" class="perfil-foto">
-  <div class="perfil-acoes">
-    <button class="btn-inscrever">Inscrever-se</button>
-    <button class="btn-like">👍 Like</button>
-    <button class="btn-compartilhar">🔗 Compartilhar</button>
-  </div>
-</div>
