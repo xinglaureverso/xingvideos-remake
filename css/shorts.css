@@ -1,50 +1,68 @@
 body {
   margin: 0;
-  font-family: sans-serif;
-  background-color: #0f0f0f;
+  background: #000;
   color: #fff;
+  font-family: sans-serif;
 }
 
-header {
-  padding: 1rem;
-  background-color: #202020;
-  text-align: center;
-  border-bottom: 1px solid #333;
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 200px;
+  height: 100%;
+  background: #111;
+  padding: 20px;
 }
 
-header h1 {
-  margin: 0;
-  font-size: 1.8rem;
+.short-container {
+  margin-left: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
 }
 
-.shortsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 1rem;
-  padding: 1rem;
+.profile-icon {
+  width: 50px;
+  border-radius: 50%;
+  margin-top: 10px;
 }
 
-.shortCard {
-  background-color: #1a1a1a;
-  border-radius: 6px;
-  overflow: hidden;
-  text-align: center;
-  box-shadow: 0 0 4px rgba(0,0,0,0.6);
+video {
+  width: 360px;
+  height: 640px;
+  background: #222;
+  margin: 20px 0;
 }
 
-.shortCard video {
-  width: 100%;
-  height: auto;
+.controls {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.shortCard p {
-  margin: 0.5rem;
-  font-size: 0.9rem;
-  color: #ccc;
+.circle-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #444;
+  color: #fff;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
 }
-.icon-img {
-  width: 24px;
-  height: 24px;
-  margin-right: 8px;
-  vertical-align: middle;
+
+.social {
+  position: absolute;
+  right: 80px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
