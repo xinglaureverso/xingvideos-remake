@@ -1,23 +1,23 @@
-const slug = new URLSearchParams(window.location.search).get("=");
-const videoElement = document.getElementById("player");
+// player.js
+document.addEventListener("DOMContentLoaded", () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const videoFile = urlParams.get("video") || "1.mp4";
+  const video = document.getElementById("player");
 
-fetch("data/videos.json")
-  .then(res => res.json())
-  .then(data => {
-    const video = data.find(v => v.slug === slug) || data.find(v => v.slug === "erro_busca");
-    videoElement.src = `assets/videos/${video.file}`;
+  video.src = videoFile;
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === " ") {
+      e.preventDefault(); // impedir scroll
+      video.paused ? video.play() : video.pause();
+    }
+    if (e.key.toLowerCase() === "m") {
+      video.muted = !video.muted;
+    }
+    if (e.key.toLowerCase() === "f") {
+      if (video.requestFullscreen) video.requestFullscreen();
+      else if (video.webkitRequestFullscreen) video.webkitRequestFullscreen();
+      else if (video.msRequestFullscreen) video.msRequestFullscreen();
+    }
   });
-
-// Atalhos de teclado
-document.addEventListener("keydown", (e) => {
-  if (e.code === "Space") {
-    e.preventDefault();
-    videoElement.paused ? videoElement.play() : videoElement.pause();
-  }
-  if (e.key.toLowerCase() === "m") {
-    videoElement.muted = !videoElement.muted;
-  }
-  if (e.altKey && e.code === "ArrowLeft") {
-    videoElement.currentTime -= 10;
-  }
 });
