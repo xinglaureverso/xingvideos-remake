@@ -1,42 +1,35 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Xing Shorts</title>
-  <link rel="stylesheet" href="css/shorts.css" />
+  <meta charset="UTF-8">
+  <title>XingShorts</title>
+  <link rel="stylesheet" href="css/shorts.css">
 </head>
-  <!-- Barra lateral com imagens .jpg -->
-<div class="sidebar">
-  <a href="index.html">
-    <img src="assets/icons/home.jpg" alt="Início" class="icon-img"> Início
-  </a>
-  <a href="shorts.html">
-    <img src="assets/icons/shorts.jpg" alt="Shorts" class="icon-img"> Shorts
-  </a>
-  <a href="favoritos.html">
-    <img src="assets/icons/favoritos.jpg" alt="Favoritos" class="icon-img"> Favoritos
-  </a>
-  <a href="login.html">
-    <img src="assets/icons/login.jpg" alt="Login" class="icon-img"> Login
-  </a>
-</div>
 <body>
+  <div class="sidebar">
+    <a href="player.html">Player</a>
+    <a href="studio.html">Studio</a>
+    <a href="login.html">Login</a>
+  </div>
 
-  <header>
-    <h1>📱 Xing Shorts</h1>
-    <p>Vídeos curtos e criativos em modo turbo 🔥</p>
-  </header>
+  <div class="short-container">
+    <img src="assets/icons/login.jpg" class="profile-icon" alt="Perfil">
+    <video id="shortPlayer" autoplay muted>
+      <source src="" type="video/mp4">
+    </video>
 
-  <section class="shortsGrid">
-    <!-- Card de exemplo -->
-    <div class="shortCard">
-      <video src="assets/shorts/exemplo1.mp4" controls muted loop></video>
-      <p>“Transformei isso em arte 🤯”</p>
+    <div class="controls">
+      <button class="circle-btn" id="prevBtn">⬆</button>
+      <button class="circle-btn" id="nextBtn">⬇</button>
     </div>
-  </section>
+
+    <div class="social">
+      <button>👍</button>
+      <button>👎</button>
+      <button>🔗</button>
+    </div>
+  </div>
 
   <script src="js/shorts.js"></script>
-  <script type="module" src="js/shorts.ts"></script>
 </body>
 </html>
