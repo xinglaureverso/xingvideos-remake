@@ -1,20 +1,20 @@
-<!-- player.html -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <title>XingPlayer</title>
-  <style>
-    body { background: #111; color: #fff; text-align: center; }
-    video { width: 80%; max-width: 800px; margin-top: 50px; }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <video id="player" controls>
-    <source src="" type="video/mp4">
-    Seu navegador não suporta vídeo.
-  </video>
+  <div class="sidebar"> <!-- sua barra lateral aqui --> </div>
 
-  <script src="js/player.js"></script>
+  <main>
+    <video id="player" controls autoplay width="800">
+      <source src="" type="video/mp4">
+      Seu navegador não suporta vídeo.
+    </video>
+  </main>
+
+  <script src="player.js"></script>
 </body>
 </html>
