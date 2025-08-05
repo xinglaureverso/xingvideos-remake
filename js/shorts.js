@@ -1,32 +1,35 @@
-let shortsData = [];
-let currentIndex = 0;
+const videos = ["1.mp4", "2.mp4", "3.mp4"]; // lista de shorts
+let current = 0;
+const player = document.getElementById("shortPlayer");
 
-async function carregarShorts() {
-  const res = await fetch('data/shorts.json');
-  shortsData = await res.json();
-  mostrarShort(currentIndex);
+function loadVideo(index) {
+  current = index;
+  player.src = `assets/shorts/${videos[current]}`;
+  player.play();
 }
 
-function mostrarShort(index) {
-  const container = document.querySelector('.shortsGrid');
-  container.innerHTML = '';
+document.getElementById("nextBtn").onclick = () => {
+  if (current < videos.length - 1) loadVideo(current + 1);
+};
 
-  const short = shortsData[index];
-  const card = document.createElement('div');
-  card.className = 'shortCard';
+document.getElementById("prevBtn").onclick = () => {
+  if (current > 0) loadVideo(current - 1);
+};
 
-  card.innerHTML = `
-    <video src="assets/shorts/${short.video}" controls muted loop></video>
-    <p>“${short.title}”</p>
-  `;
-  container.appendChild(card);
-}
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'ArrowDown') {
-    currentIndex = (currentIndex + 1) % shortsData.length;
-    mostrarShort(currentIndex);
+document.addEventListener("keydown", (e) => {
+  if (e.key === " ") {
+    e.preventDefault();
+    player.paused ? player.play() : player.pause();
+  }
+  if (e.key.toLowerCase() === "m") {
+    player.muted = !player.muted;
+  }
+  if (e.key === "ArrowDown") {
+    if (current < videos.length - 1) loadVideo(current + 1);
+  }
+  if (e.key === "ArrowUp") {
+    if (current > 0) loadVideo(current - 1);
   }
 });
 
-carregarShorts();
+loadVideo(current); // inicia com o primeiro short
