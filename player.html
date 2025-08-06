@@ -31,3 +31,34 @@
   <script src="js/player.js"></script>
 </body>
 </html>
+<!-- Botões principais abaixo do vídeo -->
+<div id="player-controls">
+  <button id="like-btn">👍 Curtir (<span id="like-count">0</span>)</button>
+  <button id="comment-toggle">💬 Comentar</button>
+  <button id="share-btn">📲 Compartilhar</button>
+  <button id="embed-btn">🌐 Incorporar</button>
+  <button id="copy-btn">🔗 Copiar Link</button>
+</div>
+
+<!-- Comentários -->
+<div id="comment-section" style="display:none;">
+  <form id="comment-form">
+    <input type="text" id="comment-input" placeholder="Digite seu comentário..." required>
+    <button type="submit">Enviar</button>
+  </form>
+  <ul id="comment-list"></ul>
+</div>
+
+<!-- Janela de compartilhamento -->
+<div id="share-popup" style="display:none;">
+  <p>Compartilhar em:</p>
+  <button onclick="window.open('https://wa.me/?text=' + encodeURIComponent(window.location.href))">WhatsApp</button>
+  <button onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href))">Facebook</button>
+  <button onclick="window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href))">Twitter/X</button>
+  <button id="close-share">Fechar</button>
+</div>
+
+<!-- Código de incorporação -->
+<div id="embed-box">
+  <textarea id="embed-code" readonly placeholder="Código de incorporação aparecerá aqui..."></textarea>
+</div>
