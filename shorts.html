@@ -1,32 +1,25 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>XingShorts</title>
+  <title>XingVideos Shorts</title>
   <link rel="stylesheet" href="css/shorts.css">
 </head>
 <body>
-  <div class="sidebar">
-    <a href="index.html">inicio</a>
-    <a href="favoritos.html">favoritos</a>
-    <a href="login.html">Login</a>
-  </div>
+  <div id="shorts-container">
+    <video id="shortPlayer" autoplay muted loop></video>
 
-  <div class="short-container">
-    <img src="assets/icons/login.jpg" class="profile-icon" alt="Perfil">
-    <video id="shortPlayer" autoplay muted>
-      <source src="" type="video/mp4">
-    </video>
-
-    <div class="controls">
-      <button class="circle-btn" id="prevBtn">⬆</button>
-      <button class="circle-btn" id="nextBtn">⬇</button>
+    <div id="controls">
+      <button id="prevBtn">⬅️</button>
+      <button id="nextBtn">➡️</button>
     </div>
 
-    <div class="social">
-      <button>👍</button>
-      <button>👎</button>
-      <button>🔗</button>
+    <div id="sidebar">
+      <button id="likeBtn">👍</button>
+      <button id="dislikeBtn">👎</button>
+      <button id="shareBtn">🔗</button>
+      <button id="commentBtn">💬</button>
+      <button id="menuBtn">❤️ Menu</button>
     </div>
   </div>
 
