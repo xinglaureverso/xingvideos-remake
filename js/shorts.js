@@ -1,7 +1,7 @@
 // Lista de IDs dos shorts disponíveis
 const shortsList = [
-  "CuQiFmBwE",
-  "XxYyZz123",
+  "1",
+  "2",
   "AbCdEf456"
 ];
 
