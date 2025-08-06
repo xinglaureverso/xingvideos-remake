@@ -199,3 +199,12 @@ video#player {
     opacity: 1;
   }
 }
+body.light {
+  background-color: #f0f0f0;
+  color: #000;
+}
+
+body.dark {
+  background-color: #121212;
+  color: #fff;
+}
