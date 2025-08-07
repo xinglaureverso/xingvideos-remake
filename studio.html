@@ -1,105 +1,56 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Xing Studio Remake</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: sans-serif;
-      background: #0d0d0d;
-      color: #f2f2f2;
-    }
-    header {
-      background: #202020;
-      padding: 1rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 1.5rem;
-    }
-    nav {
-      display: flex;
-      gap: 10px;
-      background-color: #2a2a2a;
-      padding: 0.5rem 1rem;
-    }
-    nav button {
-      background: #ff0040;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-      cursor: pointer;
-      color: white;
-      font-weight: bold;
-    }
-    section {
-      padding: 1rem;
-    }
-    .videoForm input, .videoForm textarea {
-      display: block;
-      width: 100%;
-      margin: 0.5rem 0;
-      padding: 0.5rem;
-      background: #1a1a1a;
-      border: 1px solid #333;
-      color: #fff;
-    }
-    .videoList {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 1rem;
-    }
-    .videoCard {
-      background: #1f1f1f;
-      padding: 0.5rem;
-      border-radius: 6px;
-    }
-    .videoCard img {
-      width: 100%;
-      height: auto;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <title>Studio — XingVideos</title>
+  <link rel="stylesheet" href="css/studio.css">
+  <script src="js/login.js"></script>
+  <script src="js/studio.js" defer></script>
 </head>
-<body>
+<body onload="loadStudio()">
+  <div class="container">
+    <!-- Menu lateral -->
+    <aside class="sidebar">
+      <img id="profile-pic" src="assets/default.png" alt="Foto de perfil">
+      <h2 id="channel-name">Seu Canal</h2>
+      <nav>
+        <ul>
+          <li>Painel</li>
+          <li>Conteúdo</li>
+          <li>Analytics</li>
+          <li>Comentários</li>
+          <li><a href="personalizar.html">Personalizar</a></li>
+          <li><a href="#" onclick="logoutUser()">Sair</a></li>
+        </ul>
+      </nav>
+    </aside>
 
-  <header>
-    <h1>Xing Studio - Painel de Criador</h1>
-    <button onclick="alert('Saindo...')">🔒 Sair</button>
-  </header>
+    <!-- Conteúdo principal -->
+    <main class="dashboard">
+      <section class="video-performance">
+        <h3>Último vídeo</h3>
+        <div class="video-card">
+          <img src="assets/thumbs/ultimo-video.png" alt="Thumb">
+          <div class="video-info">
+            <p><strong>que isso@davigamer79 ?</strong> #minecraft #memes #viral...</p>
+            <p>👁️ 908 views | 👍 8 likes | 💬 18 comentários</p>
+            <p>📈 Retenção: 74.2%</p>
+          </div>
+        </div>
+      </section>
 
-  <nav>
-    <button onclick="document.getElementById('uploadArea').scrollIntoView()">📤 Enviar Vídeo</button>
-    <button onclick="alert('Função de estatísticas em breve!')">📊 Estatísticas</button>
-    <button onclick="alert('Editor de vídeos ainda em desenvolvimento')">✏️ Editar Vídeo</button>
-  </nav>
-
-  <section id="uploadArea">
-    <h2>📤 Enviar novo vídeo</h2>
-    <form class="videoForm">
-      <input type="text" placeholder="Título do vídeo" required />
-      <textarea placeholder="Descrição do vídeo"></textarea>
-      <input type="file" accept="video/mp4" required />
-      <input type="file" accept="image/*" />
-      <button type="submit">🚀 Publicar</button>
-    </form>
-  </section>
-
-  <section>
-    <h2>🎞️ Seus vídeos publicados</h2>
-    <div class="videoList">
-      <div class="videoCard">
-        <img src="uploads/thumbs/exemplo.jpg" alt="Miniatura">
-        <p><strong>Tutorial visual</strong></p>
-        <p>📅 há 3 dias · 👁️ 1.230 views</p>
-      </div>
-      <!-- Mais cards aqui -->
-    </div>
-  </section>
-
+      <section class="channel-stats">
+        <h3>Estatísticas</h3>
+        <p>👥 Inscritos: 276 (+47)</p>
+        <p>📊 Visualizações: 3.1 mil | ⏱️ 14.6 horas</p>
+        <h4>Principais vídeos</h4>
+        <ul>
+          <li>xinglau brainrot kkkk — 106 views</li>
+          <li>Pre pre pressão verso 2024 — 14 views</li>
+          <li>que isso@davigamer79 ? — 5 views</li>
+        </ul>
+      </section>
+    </main>
+  </div>
 </body>
 </html>
