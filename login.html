@@ -1,18 +1,14 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Login - XingStudio</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <title>Login</title>
+  <script src="js/login.js"></script>
 </head>
 <body>
   <h2>Login</h2>
-  <input type="text" id="loginUser" placeholder="Usuário">
-  <input type="password" id="loginPass" placeholder="Senha">
-  <button onclick="login()">Entrar</button>
-  <p><a href="cadastro.html">Criar conta</a> | <a href="recovery.html">Recuperar senha</a></p>
-  <p id="status"></p>
-
-  <script src="js/login.js"></script>
+  <input type="text" id="login-username" placeholder="Usuário"><br>
+  <input type="password" id="login-password" placeholder="Senha"><br>
+  <button onclick="loginUser()">Entrar</button>
+  <p><a href="cadastrar.html">Criar conta</a></p>
 </body>
 </html>
