@@ -48,3 +48,104 @@ body {
 .popup.hidden {
   display: none;
 }
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.upload-popup {
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  width: 500px;
+  text-align: center;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.upload-area {
+  border: 2px dashed #ccc;
+  padding: 40px;
+  cursor: pointer;
+}
+
+.upload-icon {
+  width: 60px;
+  margin-bottom: 15px;
+}
+
+.select-btn {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.privado {
+  font-style: italic;
+  color: #666;
+}
+
+.termos {
+  margin-top: 20px;
+  font-size: 12px;
+  color: #555;
+}
+.upload-popup input[type="text"],
+.upload-popup textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.video-preview {
+  background: #f0f0f0;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.action-buttons button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.action-buttons button:first-child {
+  background-color: #28a745;
+  color: white;
+}
+
+.action-buttons button:last-child {
+  background-color: #ccc;
+}
