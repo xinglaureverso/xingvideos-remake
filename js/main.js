@@ -17,3 +17,9 @@ document.getElementById("searchBar").addEventListener("input", (e) => {
     thumb.style.display = alt.includes(query) ? "inline-block" : "none";
   });
 });
+// service-worker.js (pode estar vazio para começar)
+self.addEventListener('fetch', () => {});
+// No seu script principal
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('service-worker.js');
+}
