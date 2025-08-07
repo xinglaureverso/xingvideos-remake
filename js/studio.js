@@ -1,23 +1,16 @@
-// studio.ts (convertido pra JS depois)
-function verificarConexao() {
-  const aviso = document.getElementById('offline-warning');
-  aviso.style.display = navigator.onLine ? 'none' : 'block';
-}
+// studio.js
 
-window.addEventListener('load', verificarConexao);
-window.addEventListener('online', verificarConexao);
-window.addEventListener('offline', verificarConexao);
+function loadStudio() {
+  checkLogin(); // do auth.js
 
-function carregarCanal() {
-  fetch('data/channel.json')
-    .then(res => res.json())
-    .then(data => {
-      const info = document.getElementById('channel-info');
-      info.innerHTML = `
-        <h2>@${data.user}</h2>
-        <p>Inscritos: ${data.subscribers.length}</p>
-        <img src="${data.banner}" alt="Banner">
-      `;
-    });
+  const user = localStorage.getItem("loggedInUser");
+  const profileData = JSON.parse(localStorage.getItem(`profile_${user}`)) || {};
+
+  // Nome do canal
+  const channelName = profileData.name || "Seu Canal";
+  document.getElementById("channel-name").textContent = channelName;
+
+  // Foto de perfil
+  const profilePic = profileData.photo || "../assets/login.jpg";
+  document.getElementById("profile-pic").src = profilePic;
 }
-carregarCanal();
