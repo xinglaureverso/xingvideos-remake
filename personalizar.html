@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Personalizar Canal — XingVideos</title>
+  <link rel="stylesheet" href="css/studio.css">
+  <script src="js/personalizar.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <!-- Menu lateral -->
+    <aside class="sidebar">
+      <h2>Personalização</h2>
+      <nav>
+        <ul>
+          <li>Seu canal</li>
+          <li>Legendas</li>
+          <li>Direitos autorais</li>
+          <li>Monetização</li>
+          <li class="active">Personalização</li>
+          <li>Biblioteca de áudio</li>
+          <li>Configurações</li>
+          <li><a href="studio.html">Voltar ao Studio</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Área principal -->
+    <main class="dashboard">
+      <h2>Personalizar Canal</h2>
+
+      <!-- Banner -->
+      <section class="custom-section">
+        <h3>Imagem do banner</h3>
+        <input type="file" id="banner-upload" accept="image/*">
+        <img id="banner-preview" src="assets/default-banner.png" alt="Preview do banner">
+        <p>Escolha uma imagem de até 6 MB com pelo menos 2048 x 1152 pixels.</p>
+      </section>
+
+      <!-- Foto de perfil -->
+      <section class="custom-section">
+        <h3>Foto de perfil</h3>
+        <input type="file" id="photo-upload" accept="image/*">
+        <img id="photo-preview" src="assets/default.png" alt="Preview da foto">
+        <p>Use uma imagem de até 4 MB com pelo menos 98 x 98 pixels. PNG ou GIF (sem animação).</p>
+      </section>
+
+      <!-- Nome do canal -->
+      <section class="custom-section">
+        <h3>Nome do canal</h3>
+        <input type="text" id="channel-name-input" placeholder="Digite o nome do canal">
+      </section>
+
+      <!-- Botões -->
+      <div class="action-buttons">
+        <button onclick="saveCustomization()">Publicar</button>
+        <button onclick="window.location.href='studio.html'">Cancelar</button>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
