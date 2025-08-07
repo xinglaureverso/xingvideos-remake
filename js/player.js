@@ -1,29 +1,33 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const urlParams = new URLSearchParams(window.location.search);
-  const videoName = urlParams.get("video");
-  const video = document.getElementById("player");
+  const params = new URLSearchParams(window.location.search);
+  const videoId = params.get("video");
+  const user = localStorage.getItem("loggedInUser");
 
-  // Verifica se o vídeo existe na lista de vídeos salvos
-  let found = false;
-  const allUsers = Object.keys(localStorage).filter(k => k.startsWith("videos_"));
-
-  for (const key of allUsers) {
-    const videos = JSON.parse(localStorage.getItem(key));
-    if (videos.some(v => v.link.includes(videoName))) {
-      found = true;
-      break;
-    }
-  }
-
-  if (videoName && found) {
-    video.src = `assets/videos/${videoName}.mp4`;
-  } else {
-    document.body.innerHTML = `<h2>❌ Vídeo não encontrado.</h2>
-      <p>O vídeo com ID <strong>${videoName || "desconhecido"}</strong> não existe ou foi removido.</p>`;
+  if (!videoId || !user) {
+    document.body.innerHTML = "<h2>❌ Vídeo ou usuário não encontrado.</h2>";
     return;
   }
 
+  const videos = JSON.parse(localStorage.getItem(`videos_${user}`)) || [];
+  const videoData = videos.find(v => v.id === videoId);
+
+  if (!videoData) {
+    document.body.innerHTML = `<h2>❌ Vídeo com ID <strong>${videoId}</strong> não encontrado.</h2>`;
+    return;
+  }
+
+  // Atualiza visualizações
+  videoData.views++;
+  localStorage.setItem(`videos_${user}`, JSON.stringify(videos));
+
+  // Preenche dados
+  document.getElementById("video-title").textContent = videoData.title;
+  document.getElementById("video-description").textContent = videoData.description;
+  document.getElementById("view-count").textContent = videoData.views;
+  document.getElementById("video-source").src = `assets/videos/${videoId}.mp4`;
+
   // Atalhos de teclado
+  const video = document.getElementById("player");
   document.addEventListener("keydown", (e) => {
     if (e.key === " ") {
       e.preventDefault();
@@ -37,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Like button
+  // Like system
   const likeBtn = document.getElementById('like-btn');
   const likeCount = document.getElementById('like-count');
   let likes = 0;
@@ -61,34 +65,5 @@ document.addEventListener("DOMContentLoaded", () => {
       commentList.appendChild(li);
       commentInput.value = '';
     }
-  });
-
-  // Share popup
-  const shareBtn = document.getElementById('share-btn');
-  const sharePopup = document.getElementById('share-popup');
-  const closeShare = document.getElementById('close-share');
-
-  shareBtn.addEventListener('click', () => {
-    sharePopup.style.display = 'block';
-  });
-  closeShare.addEventListener('click', () => {
-    sharePopup.style.display = 'none';
-  });
-
-  // Embed code
-  const embedBtn = document.getElementById('embed-btn');
-  const embedCode = document.getElementById('embed-code');
-
-  embedBtn.addEventListener('click', () => {
-    const iframe = `<iframe src="${window.location.href}" width="560" height="315" frameborder="0" allowfullscreen></iframe>`;
-    embedCode.value = iframe;
-  });
-
-  // Copy link
-  const copyBtn = document.getElementById('copy-btn');
-  copyBtn.addEventListener('click', () => {
-    navigator.clipboard.writeText(window.location.href)
-      .then(() => alert('🔗 Link copiado!'))
-      .catch(() => alert('❌ Erro ao copiar'));
   });
 });
