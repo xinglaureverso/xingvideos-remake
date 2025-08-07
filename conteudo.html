@@ -22,6 +22,41 @@
 
     <!-- Pop-up de postagem (vai ser ativado depois) -->
     <div id="popup-postar" class="popup hidden">
+      <div class="upload-popup">
+  <button class="close-btn" onclick="fecharPopup()">✖</button>
+  <div class="upload-area" onclick="document.getElementById('video-input').click()">
+    <img src="assets/upload-icon.png" alt="Upload" class="upload-icon">
+    <p>Arraste e solte os arquivos de vídeo para fazer o envio</p>
+    <p class="privado">Seus vídeos ficarão privados até que você os publique.</p>
+    <button class="select-btn">Selecionar arquivos</button>
+    <input type="file" id="video-input" accept="video/*" hidden>
+  </div>
+  <p class="termos">
+    Ao enviar seus vídeos para o XingVideos, você concorda com os <a href="#">Termos de Serviço</a> e com as <a href="#">Diretrizes da Comunidade</a>.<br>
+    Tenha cuidado para não violar os direitos autorais e a privacidade de terceiros.
+  </p>
+</div>
+<div id="etapa-detalhes" class="upload-popup hidden">
+  <button class="close-btn" onclick="fecharPopup()">✖</button>
+  <h2>Detalhes do Vídeo</h2>
+
+  <label for="titulo">Título <span style="color:red">*</span></label>
+  <input type="text" id="titulo" placeholder="como eu conheci o Gulin">
+
+  <label for="descricao">Descrição</label>
+  <textarea id="descricao" rows="4" placeholder="Fale sobre seu vídeo para os espectadores (insira uma @ para mencionar um canal)"></textarea>
+
+  <div class="video-preview">
+    <p>Processando vídeo...</p>
+    <p>Link: <a href="player.html" id="video-link" target="_blank">https://xingvideos-remake.vercel.app/player.html?v=meu-video.mp4</a></p>
+  </div>
+
+  <div class="action-buttons">
+    <button onclick="salvarVideo()">Publicar</button>
+    <button onclick="voltarUpload()">Voltar</button>
+  </div>
+</div>
+
       <!-- Conteúdo do pop-up será inserido depois com base nas imagens que você vai mandar -->
     </div>
   </div>
