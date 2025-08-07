@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>XingPlayer</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+<!-- Sidebar with .jpg icons -->
+<div class="sidebar">
+  <a href="../index.html">
+    <img src="../assets/icons/home.jpg" alt="Home" class="icon-img"> Home
+  </a>
+  <a href="shorts.html">
+    <img src="../assets/icons/shorts.jpg" alt="Shorts" class="icon-img"> Shorts
+  </a>
+  <a href="favorites.html">
+    <img src="../assets/icons/favoritos.jpg" alt="Favorites" class="icon-img"> Favorites
+  </a>
+  <a href="login.html">
+    <img src="../assets/icons/login.jpg" alt="Login" class="icon-img"> Login
+  </a>
+</div>
+
+<main>
+  <video id="player" controls autoplay width="800">
+    <source src="" type="video/mp4">
+    Your browser does not support video playback.
+  </video>
+</main>
+
+<script src="../js/player.js"></script>
+</body>
+</html>
+
+<!-- Main buttons below the video -->
+<div id="player-controls">
+  <button id="like-btn">👍 Like (<span id="like-count">0</span>)</button>
+  <button id="comment-toggle">💬 Comment</button>
+  <button id="share-btn">📲 Share</button>
+  <button id="embed-btn">🌐 Embed</button>
+  <button id="copy-btn">🔗 Copy Link</button>
+</div>
+
+<!-- Comments -->
+<div id="comment-section" style="display:none;">
+  <form id="comment-form">
+    <input type="text" id="comment-input" placeholder="Type your comment..." required>
+    <button type="submit">Send</button>
+  </form>
+  <ul id="comment-list"></ul>
+</div>
+
+<!-- Share popup -->
+<div id="share-popup" style="display:none;">
+  <p>Share on:</p>
+  <button onclick="window.open('https://wa.me/?text=' + encodeURIComponent(window.location.href))">WhatsApp</button>
+  <button onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href))">Facebook</button>
+  <button onclick="window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href))">Twitter/X</button>
+  <button id="close-share">Close</button>
+</div>
+
+<!-- Embed code box -->
+<div id="embed-box">
+  <textarea id="embed-code" readonly placeholder="Embed code will appear here..."></textarea>
+</div>
