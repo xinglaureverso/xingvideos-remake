@@ -71,6 +71,7 @@ function salvarVideo() {
   const descricao = document.getElementById("descricao").value.trim();
   const link = document.getElementById("video-link").href;
   const id = document.getElementById("video-link").dataset.id;
+const link = `${id}.mp4`;
 
   if (!titulo) return alert("O título é obrigatório.");
 
