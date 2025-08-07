@@ -1,18 +1,14 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Cadastro - XingStudio</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <title>Cadastro</title>
+  <script src="js/login.js"></script>
 </head>
 <body>
   <h2>Cadastro</h2>
-  <input type="text" id="newUser" placeholder="Novo usuário">
-  <input type="password" id="newPass" placeholder="Nova senha">
-  <button onclick="register()">Cadastrar</button>
-  <p><a href="login.html">Voltar ao login</a></p>
-  <p id="status"></p>
-
-  <script src="js/cadastro.js"></script>
+  <input type="text" id="reg-username" placeholder="Usuário"><br>
+  <input type="password" id="reg-password" placeholder="Senha"><br>
+  <button onclick="registerUser()">Cadastrar</button>
+  <p><a href="login.html">Já tem conta? Entrar</a></p>
 </body>
 </html>
