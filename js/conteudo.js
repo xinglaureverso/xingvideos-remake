@@ -46,7 +46,7 @@ document.getElementById("video-input").addEventListener("change", (e) => {
 
     // Gera ID único para o vídeo
     const videoId = Math.random().toString(36).substring(7);
-    const fakeLink = `player.html?video=${videoId}`;
+    const fakeLink = `watch.html?video=${videoId}`;
 
     // Exibe link gerado
     document.getElementById("video-link").href = fakeLink;
