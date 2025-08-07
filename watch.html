@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>XingVideos Remake</title>
+  <link rel="stylesheet" href="css/styles.css"> <!-- se tiver -->
+</head>
+<body>
+  <h1>🎥 XingVideos Remake</h1>
+
+  <video id="player" controls width="640" height="360">
+    Seu navegador não suporta vídeos.
+  </video>
+
+  <div>
+    <button id="like-btn">👍 Curtir</button>
+    <span id="like-count">0</span>
+  </div>
+
+  <form id="comment-form">
+    <input type="text" id="comment-input" placeholder="Deixe seu comentário..." required>
+    <button type="submit">Enviar</button>
+  </form>
+  <ul id="comment-list"></ul>
+
+  <div>
+    <button id="share-btn">🔗 Compartilhar</button>
+    <button id="embed-btn">📎 Incorporar</button>
+    <button id="copy-btn">📋 Copiar link</button>
+  </div>
+
+  <div id="share-popup" style="display:none;">
+    <p>Compartilhe com seus amigos!</p>
+    <button id="close-share">Fechar</button>
+  </div>
+
+  <textarea id="embed-code" readonly></textarea>
+
+  <script src="js/watch.js"></script> <!-- seu script que já funciona -->
+</body>
+</html>
