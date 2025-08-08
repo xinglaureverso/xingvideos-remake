@@ -1,58 +1,48 @@
-// Lista de IDs dos shorts disponíveis
-const shortsList = [
-  "1",
-  "2",
-  "AbCdEf456"
-];
+// Lista de vídeos disponíveis
+const shortsData = {
+  banana: {
+    src: "../assets/shorts/banana.mp4",
+    title: "3 NÍVEIS DE BANANA!",
+    channel: "@CheffOtto",
+    likes: "376 mil",
+    comments: "5.163"
+  },
+  segundo: {
+    src: "videos/segundo.mp4",
+    title: "SEGUNDO VÍDEO",
+    channel: "@OutroCanal",
+    likes: "1.200",
+    comments: "300"
+  }
+};
 
-let currentIndex = 0;
+// Pega o parâmetro da URL
+const params = new URLSearchParams(window.location.search);
+const videoKey = params.get("video");
 
-// Função para carregar o short atual
-function loadShort(index) {
-  const shortId = shortsList[index];
-  const video = document.getElementById("shortPlayer");
-  video.src = `/assets/shorts/${shortId}.mp4`;
+// Elementos
+const player = document.getElementById("shorts-player");
+const title = document.getElementById("video-title");
+const channel = document.getElementById("video-channel");
+const likeCount = document.getElementById("like-count");
+const commentCount = document.getElementById("comment-count");
+
+// Carrega o vídeo
+if (videoKey && shortsData[videoKey]) {
+  const data = shortsData[videoKey];
+  player.src = data.src;
+  title.textContent = data.title;
+  channel.textContent = data.channel;
+  likeCount.textContent = data.likes;
+  commentCount.textContent = data.comments;
+} else {
+  title.textContent = "Vídeo não encontrado";
+  channel.textContent = "@Desconhecido";
 }
 
-// Botão: anterior
-document.getElementById("prevBtn").addEventListener("click", () => {
-  currentIndex = (currentIndex - 1 + shortsList.length) % shortsList.length;
-  loadShort(currentIndex);
+// Atalhos de teclado
+document.addEventListener("keydown", (e) => {
+  if (e.key === "l") alert("Você curtiu!");
+  if (e.key === "c") alert("Abrir comentários...");
+  if (e.key === "s") alert("Compartilhar vídeo...");
 });
-
-// Botão: próximo
-document.getElementById("nextBtn").addEventListener("click", () => {
-  currentIndex = (currentIndex + 1) % shortsList.length;
-  loadShort(currentIndex);
-});
-
-// Botão: curtir
-document.getElementById("likeBtn").addEventListener("click", () => {
-  alert("Você curtiu esse short!");
-});
-
-// Botão: não curtir
-document.getElementById("dislikeBtn").addEventListener("click", () => {
-  alert("Você não curtiu esse short.");
-});
-
-// Botão: compartilhar
-document.getElementById("shareBtn").addEventListener("click", () => {
-  const shortId = shortsList[currentIndex];
-  const url = `${window.location.origin}/shorts?q=${shortId}`;
-  navigator.clipboard.writeText(url);
-  alert("Link copiado para a área de transferência!");
-});
-
-// Botão: comentários
-document.getElementById("commentBtn").addEventListener("click", () => {
-  alert("Sistema de comentários em breve!");
-});
-
-// Botão: menu lateral
-document.getElementById("menuBtn").addEventListener("click", () => {
-  window.location.href = "/menu.html"; // ou a página principal do remake
-});
-
-// Carrega o primeiro short ao abrir
-loadShort(currentIndex);
