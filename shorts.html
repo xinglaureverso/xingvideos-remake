@@ -3,167 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>atualização dos curtos 2</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      background: #000;
-      font-family: Arial, sans-serif;
-      overflow: hidden;
-    }
-
-    .shorts-wrapper {
-      position: relative;
-      width: 100vw;
-      height: 100vh;
-    }
-
-    .shorts-video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      display: none;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-    }
-
-    .shorts-video.active {
-      display: flex;
-    }
-
-    video {
-      width: 360px;
-      height: 640px;
-      object-fit: cover;
-      border-radius: 12px;
-    }
-
-    .info {
-      position: absolute;
-      bottom: 80px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: white;
-      text-align: center;
-    }
-
-    .info h2 {
-      font-size: 18px;
-      font-weight: bold;
-    }
-
-    .info p {
-      font-size: 14px;
-      margin-top: 4px;
-    }
-
-    .actions {
-      margin-top: 12px;
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-    }
-
-    button {
-      background: rgba(255, 255, 255, 0.1);
-      border: none;
-      color: white;
-      padding: 6px 12px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 14px;
-    }
-
-    button:hover {
-      background: rgba(255, 255, 255, 0.3);
-    }
-  </style>
+  <title>Shorts</title>
+  <link rel="stylesheet" href="css/shorts.css" />
 </head>
 <body>
   <div class="shorts-wrapper">
-    <div class="shorts-video active" data-index="0">
-      <video src="videos/banana.mp4" autoplay muted loop></video>
+    <div class="shorts-video">
+      <video id="shorts-player" autoplay muted loop></video>
       <div class="info">
-        <h2>3 NÍVEIS DE BANANA!</h2>
-        <p>@CheffOtto</p>
+        <h2 id="video-title">Título</h2>
+        <p id="video-channel">@Canal</p>
         <div class="actions">
-          <button onclick="like()">👍 <span id="like-count">376 mil</span></button>
-          <button onclick="comment()">💬 <span>5.163</span></button>
-          <button onclick="share()">🔗 Compartilhar</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="shorts-video" data-index="1">
-      <video src="videos/segundo.mp4" muted loop></video>
-      <div class="info">
-        <h2>SEGUNDO VÍDEO</h2>
-        <p>@OutroCanal</p>
-        <div class="actions">
-          <button onclick="like()">👍 <span>1.200</span></button>
-          <button onclick="comment()">💬 <span>300</span></button>
-          <button onclick="share()">🔗 Compartilhar</button>
+          <button id="like-btn">👍 <span id="like-count">0</span></button>
+          <button id="comment-btn">💬 <span id="comment-count">0</span></button>
+          <button id="share-btn">🔗 Compartilhar</button>
         </div>
       </div>
     </div>
   </div>
 
-  <script>
-    const videos = document.querySelectorAll('.shorts-video');
-    let current = 0;
-
-    function showVideo(index) {
-      videos.forEach((v, i) => {
-        v.classList.toggle('active', i === index);
-        const vid = v.querySelector('video');
-        if (i === index) {
-          vid.play();
-        } else {
-          vid.pause();
-          vid.currentTime = 0;
-        }
-      });
-    }
-
-    function nextVideo() {
-      current = (current + 1) % videos.length;
-      showVideo(current);
-    }
-
-    function prevVideo() {
-      current = (current - 1 + videos.length) % videos.length;
-      showVideo(current);
-    }
-
-    function like() {
-      alert('Você curtiu!');
-    }
-
-    function comment() {
-      alert('Abrir comentários...');
-    }
-
-    function share() {
-      alert('Compartilhar vídeo...');
-    }
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowDown') nextVideo();
-      if (e.key === 'ArrowUp') prevVideo();
-      if (e.key === 'l') like();
-      if (e.key === 'c') comment();
-      if (e.key === 's') share();
-    });
-
-    showVideo(current);
-  </script>
+  <script src="js/shorts.js"></script>
 </body>
 </html>
