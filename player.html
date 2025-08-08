@@ -2,63 +2,64 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>XingPlayer</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <title>XingVideos Remake Player</title>
+  <link rel="stylesheet" href="css/player.css">
 </head>
 <body>
-<!-- Barra lateral com imagens .jpg -->
-<div class="sidebar">
-  <a href="index.html">
-    <img src="assets/icons/home.jpg" alt="Início" class="icon-img"> Início
-  </a>
-  <a href="shorts.html">
-    <img src="assets/icons/shorts.jpg" alt="Shorts" class="icon-img"> Shorts
-  </a>
-  <a href="favoritos.html">
-    <img src="assets/icons/favoritos.jpg" alt="Favoritos" class="icon-img"> Favoritos
-  </a>
-  <a href="login.html">
-    <img src="assets/icons/login.jpg" alt="Login" class="icon-img"> Login
-  </a>
-</div>
+  <header>
+    <img src="../assets/icons/xr.jpg" alt="Logo XR" class="logo">
+    <button id="menu-toggle">≡</button>
+  </header>
+
+  <aside id="sidebar">
+  <ul>
+    <li>
+      <a href="index.html">
+        <img src="assets/icons/home.jpg" alt="Início"> Início
+      </a>
+    </li>
+    <li>
+      <a href="favoritos.html">
+        <img src="assets/icons/favoritos.jpg" alt="Buscar"> favoritos
+      </a>
+    </li>
+    <li>
+      <a href="login.html">
+        <img src="assets/icons/login.jpg" alt="Meus Vídeos"> entrar
+      </a>
+    </li>
+    <li>
+      <a href="config.html">
+        <img src="assets/icons/config.jpg" alt="Configurações"> Configurações
+      </a>
+    </li>
+  </ul>
+</aside>
+
+
   <main>
-    <video id="player" controls autoplay width="800">
-      <source src="" type="video/mp4">
-      Seu navegador não suporta vídeo.
-    </video>
+    <div class="player-wrapper">
+      <video id="player" controls></video>
+      <div class="video-info">
+        <h2 id="video-title">Título do vídeo</h2>
+        <p id="video-description">Descrição aqui</p>
+        <p id="video-views">0 visualizações</p>
+      </div>
+      <div class="video-actions">
+        <button id="like-btn">👍 Curtir</button>
+        <span id="like-count">0</span>
+      </div>
+      <section class="comments">
+        <h3>Comentários</h3>
+        <ul id="comment-list"></ul>
+        <form id="comment-form">
+          <input type="text" id="comment-input" placeholder="Comente aqui..." required>
+          <button type="submit">Enviar</button>
+        </form>
+      </section>
+    </div>
   </main>
 
   <script src="js/player.js"></script>
 </body>
 </html>
-<!-- Botões principais abaixo do vídeo -->
-<div id="player-controls">
-  <button id="like-btn">👍 Curtir (<span id="like-count">0</span>)</button>
-  <button id="comment-toggle">💬 Comentar</button>
-  <button id="share-btn">📲 Compartilhar</button>
-  <button id="embed-btn">🌐 Incorporar</button>
-  <button id="copy-btn">🔗 Copiar Link</button>
-</div>
-
-<!-- Comentários -->
-<div id="comment-section" style="display:none;">
-  <form id="comment-form">
-    <input type="text" id="comment-input" placeholder="Digite seu comentário..." required>
-    <button type="submit">Enviar</button>
-  </form>
-  <ul id="comment-list"></ul>
-</div>
-
-<!-- Janela de compartilhamento -->
-<div id="share-popup" style="display:none;">
-  <p>Compartilhar em:</p>
-  <button onclick="window.open('https://wa.me/?text=' + encodeURIComponent(window.location.href))">WhatsApp</button>
-  <button onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href))">Facebook</button>
-  <button onclick="window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href))">Twitter/X</button>
-  <button id="close-share">Fechar</button>
-</div>
-
-<!-- Código de incorporação -->
-<div id="embed-box">
-  <textarea id="embed-code" readonly placeholder="Código de incorporação aparecerá aqui..."></textarea>
-</div>
