@@ -200,3 +200,19 @@ video#player {
   object-fit: cover;
   border-radius: 4px;
 }
+main {
+  margin-left: 200px; /* mesmo valor da largura da sidebar */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.player-wrapper {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
