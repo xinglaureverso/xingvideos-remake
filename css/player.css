@@ -76,11 +76,11 @@ main {
 video#player {
   width: 100%;
   max-width: 960px;
-  aspect-ratio: 16 / 9; /* proporção padrão de vídeo */
+  height: 540px; /* altura fixa maior */
   background-color: #000;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
+
 
 
 /* 📄 Informações do vídeo */
