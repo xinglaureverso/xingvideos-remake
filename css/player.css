@@ -147,3 +147,19 @@ video {
     max-width: 100%;
   }
 }
+.player-wrapper {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+video#player {
+  width: 100%;
+  max-width: 1280px;
+  height: auto;
+  background-color: #000;
+  border-radius: 8px;
+}
