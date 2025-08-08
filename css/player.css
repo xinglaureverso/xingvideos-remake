@@ -1,0 +1,120 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Corpo da página */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  color: #fff;
+  display: flex;
+  min-height: 100vh;
+}
+
+/* 🎛 Menu lateral */
+#sidebar {
+  position: fixed;
+  top: 0;
+  left: -240px;
+  width: 240px;
+  height: 100%;
+  background-color: #202020;
+  padding: 20px;
+  transition: left 0.3s ease;
+  z-index: 1000;
+}
+
+#sidebar.active {
+  left: 0;
+}
+
+#sidebar ul {
+  list-style: none;
+}
+
+#sidebar li {
+  margin-bottom: 20px;
+}
+
+#sidebar a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+  padding: 8px;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+
+#sidebar a:hover {
+  background-color: #383838;
+}
+
+#sidebar img {
+  width: 24px;
+  margin-right: 12px;
+}
+
+/* ☰ Botão do menu */
+#menu-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: #ff0000;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  z-index: 1100;
+  font-size: 18px;
+}
+
+/* 📺 Área principal do player */
+main {
+  margin-left: 0;
+  padding: 60px 20px 20px 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: margin-left 0.3s ease;
+}
+
+#sidebar.active ~ main {
+  margin-left: 240px;
+}
+
+/* 🎥 Estilo do vídeo */
+video {
+  width: 100%;
+  max-width: 960px;
+  border-radius: 8px;
+  background-color: black;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+/* 📱 Responsividade */
+@media (max-width: 768px) {
+  #sidebar {
+    width: 200px;
+  }
+
+  #sidebar.active ~ main {
+    margin-left: 200px;
+  }
+
+  #menu-button {
+    padding: 8px 12px;
+    font-size: 16px;
+  }
+
+  video {
+    max-width: 100%;
+  }
+}
