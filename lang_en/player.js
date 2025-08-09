@@ -6,7 +6,7 @@ const videoId = urlParams.get("video");
 const localVideos = {
   1: {
     title: "Video 1",
-    src: "../assets/videos/1.mp4",
+    src: "../../assets/videos/1.mp4",
     description: "This is local video number 1",
     views: 100.574.017,
     likes: 1791,
