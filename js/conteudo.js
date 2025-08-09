@@ -61,3 +61,34 @@ function mostrarVideos() {
 }
 
 window.addEventListener('load', mostrarVideos);
+function postarVideo() {
+  const videoFile = document.getElementById('videoFile').files[0];
+  const thumbFile = document.getElementById('thumbFile').files[0];
+  const title = document.getElementById('videoTitle').value;
+  const visibility = document.querySelector('input[name="visibility"]:checked').value;
+
+  if (!videoFile || !title || !thumbFile) {
+    alert('Preencha todos os campos!');
+    return;
+  }
+
+  const videoURL = URL.createObjectURL(videoFile);
+  const thumbURL = URL.createObjectURL(thumbFile);
+  const novoVideo = { title, video: videoURL, thumb: thumbURL };
+
+  if (visibility === 'privado') {
+    const privados = JSON.parse(localStorage.getItem('meusVideos') || '[]');
+    privados.push(novoVideo);
+    localStorage.setItem('meusVideos', JSON.stringify(privados));
+    alert('Vídeo salvo como privado!');
+    mostrarVideos();
+  } else {
+    const publicos = JSON.parse(localStorage.getItem('videosPublicos') || '[]');
+    publicos.push(novoVideo);
+    localStorage.setItem('videosPublicos', JSON.stringify(publicos));
+    alert('Vídeo enviado ao Watch!');
+    // Aqui você pode chamar uma função para atualizar o Watch
+  }
+
+  uploadPopup.classList.add('hidden');
+}
