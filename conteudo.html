@@ -7,41 +7,18 @@
   <link rel="stylesheet" href="css/conteudo.css" />
 </head>
 <body>
-  <header>
-    <h1>Studio Criativo</h1>
-    <button id="abrirUpload">Postar Vídeo</button>
-  </header>
+  <!-- Botão para abrir o pop-up -->
+<button onclick="abrirPopup()">📤 Postar Vídeo</button>
 
-  <main>
-    <section id="videoContainer">
-      <h2>Meus Vídeos Privados</h2>
-    </section>
-  </main>
-
-  <div id="uploadPopup" class="popup hidden">
-    <!-- Etapa 1 -->
-    <div class="step" id="step1">
-      <h2>Selecione o arquivo de vídeo</h2>
-      <input type="file" id="videoFile" accept="video/*" />
-      <button onclick="nextStep(2)">Próximo</button>
-    </div>
-
-    <!-- Etapa 2 -->
-    <div class="step hidden" id="step2">
-      <h2>Informações do vídeo</h2>
-      <input type="text" id="videoTitle" placeholder="Título do vídeo" />
-      <input type="file" id="thumbFile" accept="image/*" />
-      <button onclick="nextStep(3)">Próximo</button>
-    </div>
-
-    <!-- Etapa 3 -->
-    <div class="step hidden" id="step3">
-      <h2>Visibilidade</h2>
-      <label><input type="radio" name="visibility" value="privado" checked /> Privado</label>
-      <label><input type="radio" name="visibility" value="publico" /> Público</label>
-      <button onclick="postarVideo()">Postar</button>
-    </div>
-  </div>
+<!-- Pop-up de postagem -->
+<div id="popup" style="display:none; position:fixed; top:20%; left:50%; transform:translateX(-50%);
+background:#fff; padding:20px; border:2px solid #333; z-index:999; width:300px; box-shadow:0 0 10px rgba(0,0,0,0.3);">
+  <h3>Postar Novo Vídeo</h3>
+  <input type="text" id="titulo" placeholder="Título do vídeo" style="width:100%; margin-bottom:10px;"><br>
+  <input type="text" id="idVideo" placeholder="ID do vídeo" style="width:100%; margin-bottom:10px;"><br>
+  <button onclick="postarVideo()">✅ Postar</button>
+  <button onclick="fecharPopup()">❌ Fechar</button>
+</div>
 
   <script src="js/conteudo.js"></script>
 </body>
